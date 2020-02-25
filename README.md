@@ -2,9 +2,15 @@
 
 Below is a template provided for use when building your README file for students.
 
-# Project Title
+# Custom Loading Button
 
-Project description goes here.
+This app downloads a file from Internet by clicking on a custom-built button where:
+- width of the button gets animated from left to right;
+- text gets changed based on different states of the button;
+- circle gets be animated from 0 to 360 degrees.
+
+And notification will be send to user once the download is complete. 
+
 
 ## Getting Started
 
@@ -13,7 +19,13 @@ Instructions for how to get a copy of the project running on your local machine.
 ### Dependencies
 
 ```
-Examples here
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 ```
 
 ### Installation
@@ -43,9 +55,8 @@ This section should contain all the student deliverables for this project.
 
 ## Built With
 
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
+* [Android Studio](https://developer.android.com/studio) - Default IDE used to build android apps
+* [Kotlin](https://kotlinlang.org/) - Default language used to build this project
 
 Include all items used to build project.
 
