@@ -10,6 +10,8 @@ This app downloads a file from Internet by clicking on a custom-built button whe
 - circle gets be animated from 0 to 360 degrees.
 
 And notification will be send to user once the download is complete. 
+When user clicks on notification, user lands on detail activity and notification gets dismissed. 
+In detail activity, the floating action button gets animated once user clicks on it.
 
 
 ## Getting Started
