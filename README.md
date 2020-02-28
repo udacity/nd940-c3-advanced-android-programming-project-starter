@@ -39,8 +39,8 @@ List out the steps:
 ```
 1. Open Android Studio Application
 2. Choose "Open an existing Android Studio Project"
-3. In the opened finder find `nd940-c3-advanced-android-programming` folder
-4. Click on the folder and select `project` folder, then `solution` folder and click on "Open" button
+3. In the opened finder find `nd940-c3-advanced-android-programming-project-starter` folder
+4. Click on the folder and select `starter` folder and click on "Open" button
 5. Once the project is opened in Android studio, go to File -> Sync Project with gradle files
 6. Click on "Run" button in Android Studio to install the project on the phone or emulator
 ```
