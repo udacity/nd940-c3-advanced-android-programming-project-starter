@@ -2,14 +2,14 @@
 
 Below is a template provided for use when building your README file for students.
 
-# Custom Loading Button
+# LoadApp
 
-This app downloads a file from Internet by clicking on a custom-built button where:
-- width of the button gets animated from left to right;
-- text gets changed based on different states of the button;
-- circle gets be animated from 0 to 360 degrees.
+In this project students will create an app to download a file from Internet by clicking on a custom-built button where:
+ - width of the button gets animated from left to right;
+ - text gets changed based on different states of the button;
+ - circle gets be animated from 0 to 360 degrees
 
-And notification will be send to user once the download is complete. 
+A notification will be sent once the download is complete. When a user clicks on notification, the user lands on detail activity and the notification gets dismissed. In detail activity, the status of the download will be displayed and animated via MotionLayout upon opening the activity.
 
 
 ## Getting Started
@@ -37,8 +37,8 @@ List out the steps:
 ```
 1. Open Android Studio Application
 2. Choose "Open an existing Android Studio Project"
-3. In the opened finder find `nd940-c3-advanced-android-programming` folder
-4. Click on the folder and select `project` folder, then `solution` folder and click on "Open" button
+3. In the opened finder find `nd940-c3-advanced-android-programming-project-starter` folder
+4. Click on the folder and select `starter` folder and click on "Open" button
 5. Once the project is opened in Android studio, go to File -> Sync Project with gradle files
 6. Click on "Run" button in Android Studio to install the project on the phone or emulator
 ```
