@@ -66,3 +66,4 @@ This section should contain all the student deliverables for this project.
 Include all items used to build project.
 
 ## License
+Please review the following [license agreement](https://bumptech.github.io/glide/dev/open-source-licenses.html)
