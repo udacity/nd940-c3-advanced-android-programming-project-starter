@@ -1,7 +1,3 @@
-# README Template
-
-Below is a template provided for use when building your README file for students.
-
 # LoadApp
 
 In this project students will create an app to download a file from Internet by clicking on a custom-built button where:
