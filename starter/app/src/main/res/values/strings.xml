@@ -11,4 +11,5 @@
     <string name="button_name">Click me</string>
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="button_clicked">Clicked</string>
 </resources>
