@@ -24,11 +24,15 @@ class LoadingButton @JvmOverloads constructor(
 
     private var progress: Float = 0f
 
+    private var sweepAngle: Float = 0f
+
     private var widthSize = 0
 
     private var heightSize = 0
 
-    private var valueAnimator = ValueAnimator()
+    private var loadingAnimator = ValueAnimator()
+
+    private var circleLoadingAnimator = ValueAnimator()
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
@@ -56,12 +60,17 @@ class LoadingButton @JvmOverloads constructor(
             }
             is ButtonState.Completed -> {
                 isEnabled = true
-                valueAnimator.cancel()
+                stopLoading()
                 updateText(R.string.button_name)
                 updateContentDescriptor(R.string.button_name)
             }
         }
         invalidate()
+    }
+
+    private fun stopLoading() {
+        loadingAnimator.cancel()
+        circleLoadingAnimator.cancel()
     }
 
     init {
@@ -76,6 +85,7 @@ class LoadingButton @JvmOverloads constructor(
         super.onDraw(canvas)
         drawButton(canvas)
         drawLoading(canvas)
+        drawCircle(canvas)
         drawText(canvas)
     }
 
@@ -99,25 +109,43 @@ class LoadingButton @JvmOverloads constructor(
     }
 
     private fun startLoading() {
-        valueAnimator.cancel()
-        valueAnimator = ValueAnimator.ofFloat(0F, widthSize.toFloat()).apply {
+        animateLoading()
+        animateCircleLoading()
+    }
+
+    private fun animateCircleLoading() {
+        circleLoadingAnimator.cancel()
+        circleLoadingAnimator = ValueAnimator.ofFloat(0f, 360f).apply {
             duration = 1000
             repeatCount = ValueAnimator.INFINITE
             repeatMode = ValueAnimator.RESTART
             interpolator = LinearInterpolator()
             addUpdateListener { valueAnimator ->
-                onProgress(valueAnimator)
+                sweepAngle = valueAnimator.animatedValue as Float
+            }
+            doOnCancel {
+                sweepAngle = 0f
+            }
+        }
+        circleLoadingAnimator.start()
+    }
+
+    private fun animateLoading() {
+        loadingAnimator.cancel()
+        loadingAnimator = ValueAnimator.ofFloat(0F, widthSize.toFloat()).apply {
+            duration = 1000
+            repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.RESTART
+            interpolator = LinearInterpolator()
+            addUpdateListener { valueAnimator ->
+                progress = valueAnimator.animatedValue as Float
+                invalidate()
             }
             doOnCancel {
                 progress = 0f
             }
         }
-        valueAnimator.start()
-    }
-
-    private fun onProgress(valueAnimator: ValueAnimator) {
-        progress = valueAnimator.animatedValue as Float
-        invalidate()
+        loadingAnimator.start()
     }
 
     private fun updateText(@StringRes stringResId: Int) {
@@ -158,6 +186,26 @@ class LoadingButton @JvmOverloads constructor(
                 0.0f,
                 width.toFloat(),
                 height.toFloat(),
+                paint
+        )
+    }
+
+    private fun drawCircle(canvas: Canvas?) {
+        paint.color = Color.YELLOW
+        val left = widthSize - 70f
+        val top = (heightSize / 2) - 20f
+        val right = widthSize - 30f
+        val bottom = (heightSize / 2) + 20f
+        val startAngle = 0F
+        val useCenter = true
+        canvas?.drawArc(
+                left,
+                top,
+                right,
+                bottom,
+                startAngle,
+                sweepAngle,
+                useCenter,
                 paint
         )
     }
