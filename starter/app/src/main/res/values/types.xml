@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance"/>
+    <style name="TextAppearance.LoadApp">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+    <style name="TextAppearance.LoadApp.Label">
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+    <style name="TextAppearance.LoadApp.Content">
+        <item name="android:textColor">?attr/colorPrimaryDark</item>
+    </style>
+    <style name="TextAppearance.LoadApp.Failure">
+        <item name="android:textColor">?attr/colorError</item>
+    </style>
+</resources>

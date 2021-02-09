@@ -12,4 +12,15 @@
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="button_clicked">Clicked</string>
+    <string name="unselected_repository">Please select the file to download</string>
+    <string name="glide_repo_file">Glide - Image Loading Library by BumpTech</string>
+    <string name="starter_project_repo_file">LoadApp - Current repository by Udacity</string>
+    <string name="retrofit_repo_file">Retrofit - Type-safe HTTP client for Android and Java by Square, Inc</string>
+    <string name="loadapp_channel_id">loadapp_channel_id</string>
+    <string name="download_channel_id">LoadApp - Download Channel</string>
+    <string name="download_status_success">Success</string>
+    <string name="download_status_fail">Fail</string>
+    <string name="filename_label">Filename:</string>
+    <string name="ok">OK</string>
+    <string name="status_label">Status:</string>
 </resources>

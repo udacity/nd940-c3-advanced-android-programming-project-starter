@@ -33,13 +33,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintVertical_bias="0.3"
+        android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/glide_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:textSize="@dimen/default_text_size"
+            android:text="@string/glide_repo_file" />
+
+        <RadioButton
+            android:id="@+id/starter_project_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/radio_button_margin"
+            android:textSize="@dimen/default_text_size"
+            android:text="@string/starter_project_repo_file" />
+
+        <RadioButton
+            android:id="@+id/retrofit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/radio_button_margin"
+            android:textSize="@dimen/default_text_size"
+            android:text="@string/retrofit_repo_file" />
+
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
