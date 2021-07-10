@@ -21,7 +21,7 @@ class LoadingButton @JvmOverloads constructor(
 
 
     init {
-
+        setBackgroundColor(getContext().getColor(R.color.colorPrimary))
     }
 
 
