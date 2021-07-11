@@ -23,4 +23,6 @@
     <string name="label_success">Success</string>
     <string name="label_fail">Fail</string>
 
+    <string name="label_download">Download</string>
+
 </resources>

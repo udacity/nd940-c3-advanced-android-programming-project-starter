@@ -15,6 +15,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.content_main.view.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             applicationContext, NotificationManager::class.java
         )
     }
+
     private lateinit var pendingIntent: PendingIntent
     private lateinit var action: NotificationCompat.Action
 
@@ -36,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.radio1 -> {
@@ -53,9 +54,9 @@ class MainActivity : AppCompatActivity() {
         custom_button.setOnClickListener {
             radioOption?.let {
                 download(it.url)
+                custom_button.startLoading()
                 notificationManager?.cancelAll()
             } ?: showToast()
-
         }
     }
 
@@ -83,6 +84,8 @@ class MainActivity : AppCompatActivity() {
                     context.getString(R.string.notification_description),
                     createPendingIntent(selectedOption, downloadStatus)
                 )
+
+               // custom_button.updateButtonState(ButtonState.Completed)
             }
         }
     }
