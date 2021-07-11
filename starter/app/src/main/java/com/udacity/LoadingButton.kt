@@ -42,9 +42,6 @@ class LoadingButton @JvmOverloads constructor(
     private var valueAnimator = ValueAnimator()
     private var animateValue: Float = 0.0f
     private val rectF = RectF()
-
-    // private var rectF = RectF(50f, 20f, 100f, 80f)
-
     private var buttonState: ButtonState by Delegates.observable<ButtonState>(ButtonState.Completed) { p, old, new ->
         if (old != new) {
             when (new) {
@@ -121,8 +118,6 @@ class LoadingButton @JvmOverloads constructor(
             yPos,
             paint
         )
-
-
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

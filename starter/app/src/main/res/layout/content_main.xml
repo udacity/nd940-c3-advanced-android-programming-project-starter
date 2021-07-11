@@ -33,21 +33,24 @@
             android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_radio_1" />
+            android:text="@string/label_radio_1"
+            android:textSize="@dimen/default_text_size" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16"
-            android:text="@string/label_radio_2" />
+            android:text="@string/label_radio_2"
+            android:textSize="@dimen/default_text_size" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/radio3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16"
-            android:text="@string/label_radio_3" />
+            android:text="@string/label_radio_3"
+            android:textSize="@dimen/default_text_size" />
 
 
     </RadioGroup>
