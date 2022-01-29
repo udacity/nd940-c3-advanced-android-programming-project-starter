@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
-            android:layout_height="224dp"
+            android:layout_height="0dp"
             android:background="@color/colorPrimaryDark"
             android:contentDescription="@string/image_view_content_description"
             android:scaleType="fitCenter"
@@ -34,8 +34,7 @@
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/radioGroup_padding_large"
-            android:padding="@dimen/radioGroup_padding_large"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/custom_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -44,26 +43,26 @@
 
             <RadioButton
                 android:id="@+id/button_glide"
-                style="@style/radioButton"
-                android:layout_marginTop="@dimen/radioGroup_padding_large"
-                android:text="@string/radio_label_glide" />
+                android:layout_marginTop="@dimen/radioButton_margin_medium"
+                android:text="@string/radio_label_glide"
+                style="@style/radioButton_land" />
 
             <RadioButton
                 android:id="@+id/button_loadApp"
-                style="@style/radioButton"
-                android:text="@string/radio_label_loadApp" />
+                android:text="@string/radio_label_loadApp"
+                style="@style/radioButton_land" />
 
             <RadioButton
                 android:id="@+id/button_retrofit"
-                style="@style/radioButton"
-                android:text="@string/radio_label_retrofit" />
+                android:text="@string/radio_label_retrofit"
+                style="@style/radioButton_land" />
         </RadioGroup>
 
         <com.udacity.LoadingButton
             android:id="@+id/custom_button"
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_margin="20dp"
+            android:layout_height="@dimen/loading_button_height_large"
+            android:layout_margin="@dimen/loading_button_margin_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
