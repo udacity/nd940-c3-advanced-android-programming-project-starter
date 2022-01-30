@@ -98,20 +98,11 @@ class LoadingButton @JvmOverloads constructor(
         paintLoading.color = loadingColor
     }
 
-    override fun performClick(): Boolean {
-        // The call to super.performClick() must happen first, which enables
-        // accessibility events as well as calls onClickListener().
-//        if (super.performClick()) return true
-        super.performClick()
-        if (buttonState == ButtonState.Completed) {
-            buttonState = ButtonState.Loading
+    fun changeButtonState(state: ButtonState) {
+        if (buttonState != state) {
+            buttonState = state
+            invalidate()
         }
-        valueAnimator.start()
-        contentDescription = resources.getString(R.string.button_content_description)
-//        valueAnimator.disableViewDuringAnimation(findViewById(R.id.custom_button))
-
-        invalidate()
-        return true
     }
 
     override fun onDraw(canvas: Canvas?) {
@@ -196,5 +187,4 @@ class LoadingButton @JvmOverloads constructor(
             }
         })
     }
-
 }
