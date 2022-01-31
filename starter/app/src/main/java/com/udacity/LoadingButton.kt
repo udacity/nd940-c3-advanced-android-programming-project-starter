@@ -55,7 +55,7 @@ class LoadingButton @JvmOverloads constructor(
         style = Paint.Style.FILL
     }
     private var valueAnimator = ValueAnimator()
-    var buttonState: ButtonState by Delegates.observable(ButtonState.Completed) { _, _, new ->
+    private var buttonState: ButtonState by Delegates.observable(ButtonState.Completed) { _, _, new ->
         when (new) {
             ButtonState.Clicked -> {}
             ButtonState.Loading -> {
@@ -86,6 +86,7 @@ class LoadingButton @JvmOverloads constructor(
 
     init {
         isClickable = true
+        buttonState = ButtonState.Completed
 
         context.withStyledAttributes(attrs, R.styleable.LoadingButton) {
             loadingColor = getColor(R.styleable.LoadingButton_buttonloadingColor, loadingColor)

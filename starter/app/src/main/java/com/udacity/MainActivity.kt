@@ -43,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(receiver)
+    }
+
     private fun checkRadioButton() {
         val radioGroup = binding.contentMain.radioGroup
         when (radioGroup.checkedRadioButtonId) {
@@ -60,6 +65,9 @@ class MainActivity : AppCompatActivity() {
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val id = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+            if (id == downloadID) {
+                loadingButton.changeButtonState(ButtonState.Completed)
+            }
         }
     }
 
@@ -67,11 +75,14 @@ class MainActivity : AppCompatActivity() {
         loadingButton.changeButtonState(ButtonState.Loading)
         val request =
             DownloadManager.Request(Uri.parse(url))
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
                 .setTitle(getString(R.string.app_name))
                 .setDescription(getString(R.string.app_description))
                 .setRequiresCharging(false)
                 .setAllowedOverMetered(true)
                 .setAllowedOverRoaming(true)
+
+        loadingButton.changeButtonState(ButtonState.Loading)
 
         val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         downloadID =
