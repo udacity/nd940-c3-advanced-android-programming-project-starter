@@ -4,6 +4,11 @@
     <string name="action_settings">Settings</string>
 
 
+    <string name="notification_message_d1">download 1</string>
+    <string name="notification_message_d2">download 2</string>
+    <string name="notification_message_d3">download 3</string>
+
+
     <string name="notification_title">Udacity: Android Kotlin Nanodegree </string>
     <string name="notification_description">The Project 3 repository is downloaded</string>
     <string name="notification_button">See changes</string>
@@ -11,4 +16,13 @@
     <string name="button_name">Click me</string>
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
+
+    <string name="notification_message_onLoad">Application Started</string>
+
+    <string name="notification_channel_id">AppNotification_Channel</string>
+    <string name="notification_channel_name">AppNotificationChannel</string>
+
+    <string name="radioBtnGlide">Glide - Image binding Library by BumpTech</string>
+    <string name="radioBtnLoadApp">LoadApp - Current repository by Udacity</string>
+    <string name="radioBtnRetrofit">Retrofit - Type-safe HTTP Client for Android and Java by Square Inc</string>
 </resources>
