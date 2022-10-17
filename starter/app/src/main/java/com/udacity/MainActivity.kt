@@ -9,6 +9,8 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,7 +33,21 @@ class MainActivity : AppCompatActivity() {
         registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
 
         custom_button.setOnClickListener {
-            download()
+            Log.d("Main", "hey, that tickles!")
+            when(download_options.checkedRadioButtonId) {
+                R.id.download_glide_button ->
+                    download(getString(R.string.download_glide_url))
+                R.id.download_udacity_button ->
+                    download(getString(R.string.download_udacity_url))
+                R.id.download_retrofit_button ->
+                    download(getString(R.string.download_retrofit_url))
+                else ->
+                    Toast.makeText(
+                        this,
+                        R.string.download_no_selection_message,
+                        Toast.LENGTH_LONG
+                    ).show()
+            }
         }
     }
 
@@ -41,9 +57,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun download() {
+    private fun download(url: String) {
+        Log.d("Main", "go download $url")
         val request =
-            DownloadManager.Request(Uri.parse(URL))
+            DownloadManager.Request(Uri.parse(url))
                 .setTitle(getString(R.string.app_name))
                 .setDescription(getString(R.string.app_description))
                 .setRequiresCharging(false)
@@ -52,13 +69,10 @@ class MainActivity : AppCompatActivity() {
 
         val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         downloadID =
-            downloadManager.enqueue(request)// enqueue puts the download request in the queue.
+            downloadManager.enqueue(request) // enqueue puts the download request in the queue.
     }
 
     companion object {
-        private const val URL =
-            "https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/master.zip"
         private const val CHANNEL_ID = "channelId"
     }
-
 }

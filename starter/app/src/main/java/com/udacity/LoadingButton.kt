@@ -26,8 +26,8 @@ class LoadingButton @JvmOverloads constructor(
 
 
     override fun onDraw(canvas: Canvas?) {
+        canvas?.drawColor(resources.getColor(R.color.colorAccent))
         super.onDraw(canvas)
-
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
